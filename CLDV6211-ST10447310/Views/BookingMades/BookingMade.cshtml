@@ -1,0 +1,48 @@
+﻿@model IEnumerable<CLDV6211_ST10447310.Models.BookingMade>
+
+@{
+    ViewData["Title"] = "All Bookings";
+}
+
+<h2>All Bookings</h2>
+
+<form asp-action="BookingMade" method="get">
+    <input type="text" name="searchString" class="form-control" placeholder="Search" />
+    <input type="submit" value="Search" class="custom-btn mt-2 mb-2" />
+</form>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Booking ID</th>
+            <th>Booking Date</th>
+            <th>Event ID</th>
+            <th>Event Name</th>
+            <th>Event Date</th>
+            <th>Description</th>
+            <th>Venue ID</th>
+            <th>Venue Name</th>
+            <th>Location</th>
+            <th>Capacity</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.BookingID</td>
+                <td>@item.BookingDate.ToShortDateString()</td>
+                <td>@item.EventID</td>
+                <td>@item.EventName</td>
+                <td>@item.EventDate.ToShortDateString()</td>
+                <td>@item.Description</td>
+                <td>@item.VenueID</td>
+                <td>@item.VenueName</td>
+                <td>@item.Location</td>
+                <td>@item.Capacity</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
